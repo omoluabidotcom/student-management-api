@@ -1,9 +1,22 @@
 package com.example.studentrestapi.student;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Student {
 
+    @Id
+    @SequenceGenerator(
+            name = "student_Name",
+            sequenceName = "student_Name",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_Name"
+    )
     private Long id;
     private String name;
     private String mail;
