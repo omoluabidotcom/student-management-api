@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -17,7 +17,7 @@ public class StudentConfig {
 
         return args -> {
 
-            List<Student> str = new LinkedList<>();
+            List<Student> str = new ArrayList<>();
             Student yahaya = new Student(
                     1L,
                     "Yahaya",

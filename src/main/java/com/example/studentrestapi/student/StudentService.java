@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -25,7 +26,13 @@ public class StudentService {
 
     public void addNewStudent(Student student) {
 
-        System.out.println(student);
+        Optional<Student> optionalStudent = studentRepository.findStudentByMail(student.getMail());
+
+        if (optionalStudent.isPresent()) {
+
+            throw new IllegalStateException("Email taken");
+        }
+        studentRepository.save(student);
     }
 
 }
